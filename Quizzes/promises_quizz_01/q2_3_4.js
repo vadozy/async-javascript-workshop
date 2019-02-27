@@ -35,5 +35,6 @@ const file = "../../node/files/demofile.txt";
 readFile(file, "utf-8")
   .then(data => gzip(data))
   .then(data => console.log(data))
-  .catch(err => console.log("Caught: ", err));
+  .catch(err => console.log("Caught: ", err))
+  .finally(_ => console.log("Finally block"));
 
