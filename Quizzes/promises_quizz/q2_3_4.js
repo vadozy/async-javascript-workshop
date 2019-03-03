@@ -5,7 +5,6 @@ const zlib = require("zlib");
 const util = require("util");
 const gzip = util.promisify(zlib.gzip);
 
-
 /*
 function gzip(data) {
   return new Promise((resolve, reject) => {
@@ -32,9 +31,15 @@ function readFile(filename, encoding) {
 const file = "../../node/files/demofile.txt";
 //const file = "./blah.blah";
 
+// readFile(file, "utf-8")
+//   .then(data => gzip(data))
+//   .then(data => console.log(data))
+//   .catch(err => console.log("Caught: ", err))
+//   .finally(_ => console.log("Finally block"));
+
+// Same as above, but even shorter
 readFile(file, "utf-8")
-  .then(data => gzip(data))
-  .then(data => console.log(data))
+  .then(gzip)
+  .then(console.log)
   .catch(err => console.log("Caught: ", err))
   .finally(_ => console.log("Finally block"));
-

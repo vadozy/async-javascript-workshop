@@ -11,4 +11,6 @@ Promise.race([
     //setTimeout(resolve, 1000, "Resolve Timeout");
   }),
   readFileFake(2000)
-]).then(val => console.log("Done after ", val)).catch(err => console.log("Done after ", err));
+])
+  .then(val => console.log("Done after ", val))
+  .catch(err => console.log("Done after ", err));
